@@ -33,8 +33,6 @@ public class Servlet extends javax.servlet.http.HttpServlet {
     private final static String PROD_Service_url = "http://ordpnocnag01.ord.dsghost.net/nagiosxi/backend/?cmd=getservicestatus&username=guest&ticket=n46qoujglff9tvd557kiiqkjtmqesgfjhkb8hul4b4d62na4rtldmatjtovp6ebk";
 
 
-
-
     static JSONObject host_message;
     static JSONObject service_message;
     static JSONObject message;
@@ -75,8 +73,6 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 remove_list.add(PROD_host_list.get(i));
             }
         }
-        //System.out.println(remove_list);
-        //System.out.println("Host size: " + host_list.size());
         PROD_host_list.removeAll(remove_list);
         System.out.println("Host size: " + host_list.size());
         System.out.println("PROD Host size: " + PROD_host_list.size());
