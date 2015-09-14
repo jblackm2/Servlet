@@ -36,13 +36,19 @@ public class Servlet extends javax.servlet.http.HttpServlet {
     static JSONObject host_message;
     static JSONObject service_message;
     static JSONObject message;
-    Queue<JSONObject> queue = new CircularFifoQueue<>(2);
+    Queue<JSONObject> queue = new CircularFifoQueue<>(3);
 
     public void init() throws ServletException
     {
         // Do required initialization
+try{
+    host_list = ReadFile.get_host_names(file);
+}
+catch (Exception e){
+    e.printStackTrace();
+        System.out.println("Cannot read file of host names");
+    }
 
-        host_list = ReadFile.get_host_names(file);
 
         ArrayList<String> remove_list = new ArrayList<>();
         //String REGEX = "(\\w+)(\\s*:\\s*)(\\w+.*\\w+)*(.com)+(\\s*)"; Original REGEX
@@ -126,6 +132,8 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         response.addHeader("Access-Control-Allow-Origin", "http://localhost:8000");
         response.addHeader("Access-Control-Allow-Credentials", "true");
 
+        //response.sendError(HttpServletResponse.SC_NOT_FOUND);
+
         if(data.contains("host")){
             //Host_Gather.gather(Host_url, host_list);
             //message = Host_Gather.gather(PROD_Host_url, PROD_host_list);
@@ -152,6 +160,10 @@ public class Servlet extends javax.servlet.http.HttpServlet {
             //message = Service_Gather.gather(PROD_Service_url, PROD_host_list);
             //message = service_message;
 
+        }
+        else{
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            System.out.print("ERROR");
         }
 
 
@@ -200,7 +212,6 @@ public class Servlet extends javax.servlet.http.HttpServlet {
     {
         // do nothing.
     }
-
 
 
 }
