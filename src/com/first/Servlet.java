@@ -21,37 +21,35 @@ import org.apache.commons.collections4.queue.CircularFifoQueue;
  */
 public class Servlet extends javax.servlet.http.HttpServlet {
 
-    private final File file = new File("C:\\Users\\blackmju\\Documents\\HostName.txt");
-    private final File PROD_file = new File("C:\\Users\\blackmju\\Documents\\PROD_HostName.txt");
+    private final File file = new File("C:\\Users\\blackmju\\Documents\\HostName.txt"); //Location of file for host names
+    private final File PROD_file = new File("C:\\Users\\blackmju\\Documents\\PROD_HostName.txt"); //Location of file for host names in PROD environment
 
     static ArrayList<String> host_list = new ArrayList<>();
     static ArrayList<String> PROD_host_list = new ArrayList<>();
 
+    //URLs to connect to Nagios' XML feeds
     private final static String Host_url = "http://orddnocnag01.ord.dsghost.net/nagiosxi/backend/?cmd=gethoststatus&username=guest&ticket=tevint8kjejbvoi9rn797bkoansgqvvlbt52odjbq6lot50np8tvihnp8i7vh7ir";
     private final static String Service_url = "http://orddnocnag01.ord.dsghost.net/nagiosxi/backend/?cmd=getservicestatus&username=guest&ticket=tevint8kjejbvoi9rn797bkoansgqvvlbt52odjbq6lot50np8tvihnp8i7vh7ir";
     private final static String PROD_Host_url = "http://ordpnocnag01.ord.dsghost.net/nagiosxi/backend/?cmd=gethoststatus&username=guest&ticket=n46qoujglff9tvd557kiiqkjtmqesgfjhkb8hul4b4d62na4rtldmatjtovp6ebk";
     private final static String PROD_Service_url = "http://ordpnocnag01.ord.dsghost.net/nagiosxi/backend/?cmd=getservicestatus&username=guest&ticket=n46qoujglff9tvd557kiiqkjtmqesgfjhkb8hul4b4d62na4rtldmatjtovp6ebk";
 
-
     static JSONObject host_message;
     static JSONObject service_message;
+    static JSONObject backup_service_message;
     static JSONObject message;
     Queue<JSONObject> queue = new CircularFifoQueue<>(3);
 
-    public void init() throws ServletException
-    {
-        // Do required initialization
-try{
-    host_list = ReadFile.get_host_names(file);
-}
-catch (Exception e){
-    e.printStackTrace();
-        System.out.println("Cannot read file of host names");
-    }
+    public void init() throws ServletException    {
 
+        try{
+            host_list = ReadFile.get_host_names(file);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Cannot read file of host names");
+        }
 
         ArrayList<String> remove_list = new ArrayList<>();
-        //String REGEX = "(\\w+)(\\s*:\\s*)(\\w+.*\\w+)*(.com)+(\\s*)"; Original REGEX
         String REGEX = "(\\w+)(\\s*:\\s*)(\\w+)(\\s*:\\s*)(\\w+.*\\w+)*(.com)+(\\s*)";
         for(int i = 0; i< host_list.size(); i++){
             if(host_list.get(i).matches(REGEX)){
@@ -68,8 +66,6 @@ catch (Exception e){
 
         PROD_host_list = ReadFile.get_host_names(PROD_file);
 
-        //ArrayList<String> remove_list = new ArrayList<>();
-        //String REGEX = "(\\w+)(\\s*:\\s*)(\\w+.*\\w+)*(.com)+(\\s*)";
         for(int i = 0; i< PROD_host_list.size(); i++){
             if(PROD_host_list.get(i).matches(REGEX)){
                 //System.out.println("True: " + i);
@@ -94,17 +90,15 @@ catch (Exception e){
         };
         timer.scheduleAtFixedRate(task, initDelay, period);
 
-
-
     }
 
     public void doGather(String Host_url, ArrayList<String> host_list, String PROD_Host_url, ArrayList<String> PROD_host_list, String Service_url, String PROD_Service_url){
-
 
         Host_Gather.gather(Host_url, host_list);
         host_message = Host_Gather.gather(PROD_Host_url, PROD_host_list);
         System.out.println("Host Message: " + host_message);
 
+        backup_service_message = service_message;
         Service_Gather.Test_list.clear();
 
         Service_Gather.gather(Service_url, host_list);
@@ -115,103 +109,71 @@ catch (Exception e){
         System.out.println("Queue Size1: " + queue.size());
         System.out.println("Service Message: " + service_message);
 
-
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        StringBuilder buffer = new StringBuilder();
-        BufferedReader reader = request.getReader();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            buffer.append(line);
+        try {
+            StringBuilder buffer = new StringBuilder();
+            BufferedReader reader = request.getReader();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                buffer.append(line);
+            }
+            String data = buffer.toString();
+            System.out.println("DATA :" + data);
+
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.addHeader("Access-Control-Allow-Origin", "http://localhost:8000");
+            response.addHeader("Access-Control-Allow-Credentials", "true");
+
+            //response.sendError(HttpServletResponse.SC_NOT_FOUND);
+
+            if (data.contains("host")) {
+
+                System.out.println("Host: " + host_message);
+
+                PrintWriter out = response.getWriter();
+                out.print(host_message);
+                out.flush();
+                out.close();
+
+            } else if (data.contains("service")) {
+                if (service_message == null) {
+
+                }
+                message = queue.element();
+
+                System.out.println("Service: " + message);
+                System.out.println("Queue Contents2: " + queue);
+                System.out.println("Queue Size2: " + queue.size());
+
+                PrintWriter out = response.getWriter();
+                out.print(message);
+                out.flush();
+                out.close();
+
+            } else {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+                System.out.print("ERROR");
+            }
         }
-        String data = buffer.toString();
-        System.out.println("DATA :" + data);
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.addHeader("Access-Control-Allow-Origin", "http://localhost:8000");
-        response.addHeader("Access-Control-Allow-Credentials", "true");
-
-        //response.sendError(HttpServletResponse.SC_NOT_FOUND);
-
-        if(data.contains("host")){
-            //Host_Gather.gather(Host_url, host_list);
-            //message = Host_Gather.gather(PROD_Host_url, PROD_host_list);
-            //message = host_message;
-            System.out.println("Host: " + host_message);
-            PrintWriter out = response.getWriter();
-            out.print(host_message);
-            out.flush();
-            out.close();
-        }
-        else if(data.contains("service")){
-            message = queue.element();
-
-            System.out.println("Service: " + message);
-            System.out.println("Queue Contents2: " + queue);
-            System.out.println("Queue Size2: " + queue.size());
-
-
-            PrintWriter out = response.getWriter();
-            out.print(message);
-            out.flush();
-            out.close();
-            //Service_Gather.gather(Service_url, host_list);
-            //message = Service_Gather.gather(PROD_Service_url, PROD_host_list);
-            //message = service_message;
+        catch (Exception e){
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            throw new ServletException(e);
 
         }
-        else{
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-            System.out.print("ERROR");
-        }
-
-
-
-
-        // Actual logic goes here.
-        //PrintWriter out = response.getWriter();
-        //out.print(message);
-        //out.flush();
-        //message.clear();
-        //doGet(request, response);
-
-
     }
 
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
             throws ServletException, IOException
     {
-        //String command = request.getParameter("msg");
-       // if (command.equals("host")){
-           // System.out.println("Command: " + command);
-
-        //}
-
-
-        // Set response content type
-        //request.setCharacterEncoding("utf8");
-        /*if(request.equals("localhost:8080/Servlet")){
-            response.setContentType("text/html");
-
-            // Actual logic goes here.
-            PrintWriter out = response.getWriter();
-            out.println("<h1>" + message + "</h1>");
-            //First.main();
-
-        }*/
-
-        //response.setContentType("text/html");
-        //PrintWriter out = response.getWriter();
-        //out.println(message);
-
+        doPost(request, response);
     }
 
     public void destroy()
     {
-        // do nothing.
+        System.out.println("DESTROYED");
     }
-
 
 }

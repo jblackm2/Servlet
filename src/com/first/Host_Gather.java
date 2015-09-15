@@ -819,35 +819,35 @@ public class Host_Gather {
                 String key = e8.nextElement();
                 if(Auth_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "Auth");
+                    t.put("group", "Authorization");
                     t.put("name", key);
                     t.put("color", Individual_DIT_table.get(key));
                     DIT_list.add(t);
                 }
                 if(CA_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "CA");
+                    t.put("group", "Common Admin");
                     t.put("name", key);
                     t.put("color", Individual_DIT_table.get(key));
                     DIT_list.add(t);
                 }
                 if(EIS_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "EIS");
+                    t.put("group", "Enterprise Identity Service");
                     t.put("name", key);
                     t.put("color", Individual_DIT_table.get(key));
                     DIT_list.add(t);
                 }
                 if(IS_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "IS");
+                    t.put("group", "Identity Service");
                     t.put("name", key);
                     t.put("color", Individual_DIT_table.get(key));
                     DIT_list.add(t);
                 }
                 if(PIS_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "PIS");
+                    t.put("group", "Product Identity Service");
                     t.put("name", key);
                     t.put("color", Individual_DIT_table.get(key));
                     DIT_list.add(t);
@@ -867,35 +867,35 @@ public class Host_Gather {
                 String key = e9.nextElement();
                 if(Auth_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "Auth");
+                    t.put("group", "Authorization");
                     t.put("name", key);
                     t.put("color", Individual_PERF_table.get(key));
                     PERF_list.add(t);
                 }
                 if(CA_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "CA");
+                    t.put("group", "Common Admin");
                     t.put("name", key);
                     t.put("color", Individual_PERF_table.get(key));
                     PERF_list.add(t);
                 }
                 if(EIS_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "EIS");
+                    t.put("group", "Enterprise Identity Service");
                     t.put("name", key);
                     t.put("color", Individual_PERF_table.get(key));
                     PERF_list.add(t);
                 }
                 if(IS_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "IS");
+                    t.put("group", "Identity Service");
                     t.put("name", key);
                     t.put("color", Individual_PERF_table.get(key));
                     PERF_list.add(t);
                 }
                 if(PIS_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "PIS");
+                    t.put("group", "Product Identity Service");
                     t.put("name", key);
                     t.put("color", Individual_PERF_table.get(key));
                     PERF_list.add(t);
@@ -916,35 +916,35 @@ public class Host_Gather {
                 String key = e10.nextElement();
                 if(Auth_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "Auth");
+                    t.put("group", "Authorization");
                     t.put("name", key);
                     t.put("color", Individual_Stage_table.get(key));
                     Stage_list.add(t);
                 }
                 if(CA_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "CA");
+                    t.put("group", "Common Admin");
                     t.put("name", key);
                     t.put("color", Individual_Stage_table.get(key));
                     Stage_list.add(t);
                 }
                 if(EIS_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "EIS");
+                    t.put("group", "Enterprise Identity Service");
                     t.put("name", key);
                     t.put("color", Individual_Stage_table.get(key));
                     Stage_list.add(t);
                 }
                 if(IS_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "IS");
+                    t.put("group", "Identity Service");
                     t.put("name", key);
                     t.put("color", Individual_Stage_table.get(key));
                     Stage_list.add(t);
                 }
                 if(PIS_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "PIS");
+                    t.put("group", "Product Identity Service");
                     t.put("name", key);
                     t.put("color", Individual_Stage_table.get(key));
                     Stage_list.add(t);
@@ -965,35 +965,35 @@ public class Host_Gather {
                 String key = e11.nextElement();
                 if(Auth_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "Auth");
+                    t.put("group", "Authorization");
                     t.put("name", key);
                     t.put("color", Individual_PROD_table.get(key));
                     PROD_list.add(t);
                 }
                 if(CA_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "CA");
+                    t.put("group", "Common Admin");
                     t.put("name", key);
                     t.put("color", Individual_PROD_table.get(key));
                     PROD_list.add(t);
                 }
                 if(EIS_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "EIS");
+                    t.put("group", "Enterprise Identity Service");
                     t.put("name", key);
                     t.put("color", Individual_PROD_table.get(key));
                     PROD_list.add(t);
                 }
                 if(IS_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "IS");
+                    t.put("group", "Identity Service");
                     t.put("name", key);
                     t.put("color", Individual_PROD_table.get(key));
                     PROD_list.add(t);
                 }
                 if(PIS_host_list.contains(key)){
                     JSONObject t = new JSONObject();
-                    t.put("group", "PIS");
+                    t.put("group", "Product Identity Service");
                     t.put("name", key);
                     t.put("color", Individual_PROD_table.get(key));
                     PROD_list.add(t);
@@ -1023,22 +1023,22 @@ public class Host_Gather {
                 JSONObject t = new JSONObject();
                 String key = e13.nextElement();
                 if(key.equals("DIT")){
-                    t.put("name", "Auth");
+                    t.put("name", "Authorization");
                     t.put("color", Env_Auth_table.get(key));
                     DIT_detail_list.add(t);
                 }
                 else if(key.equals("PERF")){
-                    t.put("name", "Auth");
+                    t.put("name", "Authorization");
                     t.put("color", Env_Auth_table.get(key));
                     PERF_detail_list.add(t);
                 }
                 else if(key.equals("Stage")){
-                    t.put("name", "Auth");
+                    t.put("name", "Authorization");
                     t.put("color", Env_Auth_table.get(key));
                     Stage_detail_list.add(t);
                 }
                 else if(key.equals("PROD")){
-                    t.put("name", "Auth");
+                    t.put("name", "Authorization");
                     t.put("color", Env_Auth_table.get(key));
                     PROD_detail_list.add(t);
                 }
@@ -1049,22 +1049,22 @@ public class Host_Gather {
                 JSONObject t = new JSONObject();
                 String key = e14.nextElement();
                 if(key.equals("DIT")){
-                    t.put("name", "CA");
+                    t.put("name", "Common Admin");
                     t.put("color", Env_CA_table.get(key));
                     DIT_detail_list.add(t);
                 }
                 else if(key.equals("PERF")){
-                    t.put("name", "CA");
+                    t.put("name", "Common Admin");
                     t.put("color", Env_CA_table.get(key));
                     PERF_detail_list.add(t);
                 }
                 else if(key.equals("Stage")){
-                    t.put("name", "CA");
+                    t.put("name", "Common Admin");
                     t.put("color", Env_CA_table.get(key));
                     Stage_detail_list.add(t);
                 }
                 else if(key.equals("PROD")){
-                    t.put("name", "CA");
+                    t.put("name", "Common Admin");
                     t.put("color", Env_CA_table.get(key));
                     PROD_detail_list.add(t);
                 }
@@ -1075,22 +1075,22 @@ public class Host_Gather {
                 JSONObject t = new JSONObject();
                 String key = e15.nextElement();
                 if(key.equals("DIT")){
-                    t.put("name", "EIS");
+                    t.put("name", "Enterprise Identity Service");
                     t.put("color", Env_EIS_table.get(key));
                     DIT_detail_list.add(t);
                 }
                 else if(key.equals("PERF")){
-                    t.put("name", "EIS");
+                    t.put("name", "Enterprise Identity Service");
                     t.put("color", Env_EIS_table.get(key));
                     PERF_detail_list.add(t);
                 }
                 else if(key.equals("Stage")){
-                    t.put("name", "EIS");
+                    t.put("name", "Enterprise Identity Service");
                     t.put("color", Env_EIS_table.get(key));
                     Stage_detail_list.add(t);
                 }
                 else if(key.equals("PROD")){
-                    t.put("name", "EIS");
+                    t.put("name", "Enterprise Identity Service");
                     t.put("color", Env_EIS_table.get(key));
                     PROD_detail_list.add(t);
                 }
@@ -1101,22 +1101,22 @@ public class Host_Gather {
                 JSONObject t = new JSONObject();
                 String key = e16.nextElement();
                 if(key.equals("DIT")){
-                    t.put("name", "IS");
+                    t.put("name", "Identity Service");
                     t.put("color", Env_IS_table.get(key));
                     DIT_detail_list.add(t);
                 }
                 else if(key.equals("PERF")){
-                    t.put("name", "IS");
+                    t.put("name", "Identity Service");
                     t.put("color", Env_IS_table.get(key));
                     PERF_detail_list.add(t);
                 }
                 else if(key.equals("Stage")){
-                    t.put("name", "IS");
+                    t.put("name", "Identity Service");
                     t.put("color", Env_IS_table.get(key));
                     Stage_detail_list.add(t);
                 }
                 else if(key.equals("PROD")){
-                    t.put("name", "IS");
+                    t.put("name", "Identity Service");
                     t.put("color", Env_IS_table.get(key));
                     PROD_detail_list.add(t);
                 }
@@ -1127,22 +1127,22 @@ public class Host_Gather {
                 JSONObject t = new JSONObject();
                 String key = e17.nextElement();
                 if(key.equals("DIT")){
-                    t.put("name", "PIS");
+                    t.put("name", "Product Identity Service");
                     t.put("color", Env_PIS_table.get(key));
                     DIT_detail_list.add(t);
                 }
                 else if(key.equals("PERF")){
-                    t.put("name", "PIS");
+                    t.put("name", "Product Identity Service");
                     t.put("color", Env_PIS_table.get(key));
                     PERF_detail_list.add(t);
                 }
                 else if(key.equals("Stage")){
-                    t.put("name", "PIS");
+                    t.put("name", "Product Identity Service");
                     t.put("color", Env_PIS_table.get(key));
                     Stage_detail_list.add(t);
                 }
                 else if(key.equals("PROD")){
-                    t.put("name", "PIS");
+                    t.put("name", "Product Identity Service");
                     t.put("color", Env_PIS_table.get(key));
                     PROD_detail_list.add(t);
                 }
@@ -1182,11 +1182,11 @@ public class Host_Gather {
             obj7.put("PERF_list", PERF_list);
             obj7.put("Stage_list", Stage_list);
             obj7.put("PROD_list", PROD_list);
-            obj7.put("Auth", Auth_list);
-            obj7.put("CA", CA_list);
-            obj7.put("EIS", EIS_list);
-            obj7.put("IS", IS_list);
-            obj7.put("PIS", PIS_list);
+            obj7.put("Authorization", Auth_list);
+            obj7.put("Common Admin", CA_list);
+            obj7.put("Enterprise Identity Service", EIS_list);
+            obj7.put("Identity Service", IS_list);
+            obj7.put("Product Identity Service", PIS_list);
             obj7.put("Polling", Polling_list);
             obj7.put("DIT", DIT_detail_list);
             obj7.put("PERF", PERF_detail_list);
