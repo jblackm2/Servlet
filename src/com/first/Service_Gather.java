@@ -143,7 +143,7 @@ public class Service_Gather {
 
                         String a = element.getElementsByTagName("current_state").item(0).getTextContent();
                         if (a.equals("0")) {
-                            String[] object = new String[8];
+                            String[] object = new String[10];
                             object[0] = (element.getElementsByTagName("name").item(0).getTextContent());
                             object[1] = (element.getElementsByTagName("host_id").item(0).getTextContent());
                             object[2] = (element.getElementsByTagName("status_text").item(0).getTextContent());
@@ -152,9 +152,11 @@ public class Service_Gather {
                             object[5] = (element.getElementsByTagName("status_update_time").item(0).getTextContent());
                             object[6] = (element.getElementsByTagName("current_check_attempt").item(0).getTextContent());
                             object[7] = (element.getElementsByTagName("max_check_attempts").item(0).getTextContent());
+                            object[8] = (element.getElementsByTagName("check_command").item(0).getTextContent());
                             service_okay_list.add(object);
                             Individual_flag_table.put(object[3], "green");
                             JSONObject t = new JSONObject();
+                            String u = new String();
                             t.put("host_name", object[3]);
                             t.put("name", object[0]);
                             t.put("status", object[2]);
@@ -162,10 +164,13 @@ public class Service_Gather {
                             t.put("status_update_time", object[5]);
                             t.put("current_check_attempt", object[6]);
                             t.put("max_check_attempts", object[7]);
+                            u = getUrl(object);
+                            
+                            t.put("url", u);
                             Test_list.add(t);
                         }
                         else if (a.equals("1")) {
-                            String[] object = new String[8];
+                            String[] object = new String[10];
                             object[0] = (element.getElementsByTagName("name").item(0).getTextContent());
                             object[1] = (element.getElementsByTagName("host_id").item(0).getTextContent());
                             object[2] = (element.getElementsByTagName("status_text").item(0).getTextContent());
@@ -174,9 +179,11 @@ public class Service_Gather {
                             object[5] = (element.getElementsByTagName("status_update_time").item(0).getTextContent());
                             object[6] = (element.getElementsByTagName("current_check_attempt").item(0).getTextContent());
                             object[7] = (element.getElementsByTagName("max_check_attempts").item(0).getTextContent());
+                            object[8] = (element.getElementsByTagName("check_command").item(0).getTextContent());
                             service_warning_list.add(object);
                             Individual_flag_table.put(object[3], "yellow");
                             JSONObject t = new JSONObject();
+                            String u = new String();
                             t.put("host_name", object[3]);
                             t.put("name", object[0]);
                             t.put("status", object[2]);
@@ -184,10 +191,13 @@ public class Service_Gather {
                             t.put("status_update_time", object[5]);
                             t.put("current_check_attempt", object[6]);
                             t.put("max_check_attempts", object[7]);
+
+                            u = getUrl(object);
+                            t.put("url", u);
                             Test_list.add(t);
                         }
                         else if (a.equals("2")) {
-                            String[] object = new String[8];
+                            String[] object = new String[10];
                             //test
                             object[0] = (element.getElementsByTagName("name").item(0).getTextContent());
                             object[1] = (element.getElementsByTagName("host_id").item(0).getTextContent());
@@ -197,9 +207,11 @@ public class Service_Gather {
                             object[5] = (element.getElementsByTagName("status_update_time").item(0).getTextContent());
                             object[6] = (element.getElementsByTagName("current_check_attempt").item(0).getTextContent());
                             object[7] = (element.getElementsByTagName("max_check_attempts").item(0).getTextContent());
+                            object[8] = (element.getElementsByTagName("check_command").item(0).getTextContent());
                             service_critical_list.add(object);
                             Individual_flag_table.put(object[3], "red");
                             JSONObject t = new JSONObject();
+                            String u = new String();
                             t.put("host_name", object[3]);
                             t.put("name", object[0]);
                             t.put("status", object[2]);
@@ -207,6 +219,9 @@ public class Service_Gather {
                             t.put("status_update_time", object[5]);
                             t.put("current_check_attempt", object[6]);
                             t.put("max_check_attempts", object[7]);
+
+                            u = getUrl(object);
+                            t.put("url", u);
                             Test_list.add(t);
                         }
 
@@ -1258,6 +1273,58 @@ public class Service_Gather {
         System.out.println("PIS List: " + PIS_host_list.size());
         System.out.println("Polling List: " + Polling_host_list);
         System.out.println("Polling List: " + Polling_host_list.size());
+    }
+
+    private static String getUrl(String[] object){
+        if(object[8].startsWith("check_xi_service_http") && !object[3].startsWith("c")){
+            int start = object[8].indexOf(";/");
+            //if(object[8].substring(start - 1, start).equals(";")){
+            int from = start + 1;
+            int to = object[8].indexOf(';', from+1);
+            object[8] = object[8].substring(from, to);
+            //t.put("url", object[3] + object[8]);
+            //t.put("check_command", object[8]);
+            System.out.println("host name: " + object[3] + " url: " + object[8]);
+            //}
+
+            //t.put("check_command", object[8]);
+            return object[3]+object[8];
+
+        }
+        else if(object[8].startsWith("check_xi_service_http") && object[3].startsWith("c")){
+            int portStart = object[8].indexOf("-p");
+            int portEnd = portStart + 7;
+            //int portEnd = object[8].indexOf("-", portStart+1);
+            System.out.println("host name: " + object[3] + " host port: " + portStart + " end: " + portEnd);
+            object[9] = object[8].substring(portStart + 3, portEnd);
+            int start = object[8].indexOf(";/");
+            int from = start + 1;
+            int to = object[8].indexOf('&', from+1);
+            object[8] = object[8].substring(from, to);
+            //t.put("url", object[3] + object[8]);
+            //t.put("url", object[3]+":"+object[9]+object[8]);
+            return object[3]+":"+object[9]+object[8];
+
+        }
+        else if(object[8].startsWith("check_http_!") && object[3].startsWith("c")){
+            int portStart = object[8].indexOf("-p");
+            int portEnd = portStart + 7;
+            //int portEnd = object[8].indexOf("-", portStart+1);
+            System.out.println("host name: " + object[3] + " host port: " + portStart + " end: " + portEnd);
+            object[9] = object[8].substring(portStart + 3, portEnd);
+            int start = object[8].indexOf(";/");
+            int from = start + 1;
+            int to = object[8].indexOf(';', from+1);
+            object[8] = object[8].substring(from, to);
+            //t.put("url", object[3] + object[8]);
+            //t.put("url", object[3]+":"+object[9]+object[8]);
+            return object[3]+":"+object[9]+object[8];
+
+        }
+        else{
+            return null;
+        }
+
     }
 
 
