@@ -1,6 +1,5 @@
 package com.first;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -165,7 +164,7 @@ public class Service_Gather {
                             t.put("current_check_attempt", object[6]);
                             t.put("max_check_attempts", object[7]);
                             u = getUrl(object);
-                            
+
                             t.put("url", u);
                             Test_list.add(t);
                         }
@@ -239,7 +238,7 @@ public class Service_Gather {
 
             }
 
-            for (int i = 0; i < service_okay_list.size(); i++) {
+            for(int i = 0; i < service_okay_list.size(); i++) {
                 if(Test_host_list.contains(service_okay_list.get(i)[3])) {
                     Group_flag_table.put("Test_host_list", "green");
                 }
@@ -844,7 +843,7 @@ public class Service_Gather {
                     }
                     if(EIS_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Enterprise Identity Service");
+                        t.put("group", "Enterprise Info Service");
                         t.put("name", key);
                         t.put("color", Individual_DIT_table.get(key));
                         DIT_list.add(t);
@@ -892,7 +891,7 @@ public class Service_Gather {
                     }
                     if(EIS_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Enterprise Identity Service");
+                        t.put("group", "Enterprise Info Service");
                         t.put("name", key);
                         t.put("color", Individual_PERF_table.get(key));
                         PERF_list.add(t);
@@ -941,7 +940,7 @@ public class Service_Gather {
                     }
                     if(EIS_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Enterprise Identity Service");
+                        t.put("group", "Enterprise Info Service");
                         t.put("name", key);
                         t.put("color", Individual_Stage_table.get(key));
                         Stage_list.add(t);
@@ -990,7 +989,7 @@ public class Service_Gather {
                     }
                     if(EIS_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Enterprise Identity Service");
+                        t.put("group", "Enterprise Info Service");
                         t.put("name", key);
                         t.put("color", Individual_PROD_table.get(key));
                         PROD_list.add(t);
@@ -1086,22 +1085,22 @@ public class Service_Gather {
                     JSONObject t = new JSONObject();
                     String key = e15.nextElement();
                     if(key.equals("DIT")){
-                        t.put("name", "Enterprise Identity Service");
+                        t.put("name", "Enterprise Info Service");
                         t.put("color", Env_EIS_table.get(key));
                         DIT_detail_list.add(t);
                     }
                     else if(key.equals("PERF")){
-                        t.put("name", "Enterprise Identity Service");
+                        t.put("name", "Enterprise Info Service");
                         t.put("color", Env_EIS_table.get(key));
                         PERF_detail_list.add(t);
                     }
                     else if(key.equals("Stage")){
-                        t.put("name", "Enterprise Identity Service");
+                        t.put("name", "Enterprise Info Service");
                         t.put("color", Env_EIS_table.get(key));
                         Stage_detail_list.add(t);
                     }
                     else if(key.equals("PROD")){
-                        t.put("name", "Enterprise Identity Service");
+                        t.put("name", "Enterprise Info Service");
                         t.put("color", Env_EIS_table.get(key));
                         PROD_detail_list.add(t);
                     }
@@ -1195,7 +1194,7 @@ public class Service_Gather {
                 obj7.put("Group_list", Group_list);
                 obj7.put("Authorization", Auth_list);
                 obj7.put("Common Admin", CA_list);
-                obj7.put("Enterprise Identity Service", EIS_list);
+                obj7.put("Enterprise Info Service", EIS_list);
                 obj7.put("Identity Service", IS_list);
                 obj7.put("Product Identity Service", PIS_list);
                 obj7.put("Polling", Polling_list);
@@ -1284,7 +1283,6 @@ public class Service_Gather {
             object[8] = object[8].substring(from, to);
             //t.put("url", object[3] + object[8]);
             //t.put("check_command", object[8]);
-            System.out.println("host name: " + object[3] + " url: " + object[8]);
             //}
 
             //t.put("check_command", object[8]);
@@ -1295,7 +1293,6 @@ public class Service_Gather {
             int portStart = object[8].indexOf("-p");
             int portEnd = portStart + 7;
             //int portEnd = object[8].indexOf("-", portStart+1);
-            System.out.println("host name: " + object[3] + " host port: " + portStart + " end: " + portEnd);
             object[9] = object[8].substring(portStart + 3, portEnd);
             int start = object[8].indexOf(";/");
             int from = start + 1;
@@ -1310,7 +1307,6 @@ public class Service_Gather {
             int portStart = object[8].indexOf("-p");
             int portEnd = portStart + 7;
             //int portEnd = object[8].indexOf("-", portStart+1);
-            System.out.println("host name: " + object[3] + " host port: " + portStart + " end: " + portEnd);
             object[9] = object[8].substring(portStart + 3, portEnd);
             int start = object[8].indexOf(";/");
             int from = start + 1;

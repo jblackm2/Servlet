@@ -1,6 +1,5 @@
 package com.first;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -16,49 +15,49 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.*;
-import java.util.concurrent.ScheduledExecutorService;
 
 /**
  * Created by blackmju on 7/23/2015.
  */
 public class Host_Gather {
 
-    static ArrayList<String> DIT_host_list = new ArrayList<>();
-    static ArrayList<String> PERF_host_list = new ArrayList<>();
-    static ArrayList<String> Stage_host_list = new ArrayList<>();
-    static ArrayList<String> PROD_host_list = new ArrayList<>();
-    static ArrayList<String> Auth_host_list = new ArrayList<>();
-    static ArrayList<String> CA_host_list = new ArrayList<>();
-    static ArrayList<String> EIS_host_list = new ArrayList<>();
-    static ArrayList<String> IS_host_list = new ArrayList<>();
-    static ArrayList<String> PIS_host_list = new ArrayList<>();
-    static ArrayList<String> Polling_host_list = new ArrayList<>();
-    static ArrayList<String> Test_host_list = new ArrayList<>();
-    static ArrayList<String> Final_host_list = new ArrayList<>();
-    static Hashtable<String, String> Env_group_table = new Hashtable<>();
-    static Hashtable<String, String> Env_Auth_table = new Hashtable<>();
-    static Hashtable<String, String> Env_CA_table = new Hashtable<>();
-    static Hashtable<String, String> Env_EIS_table = new Hashtable<>();
-    static Hashtable<String, String> Env_IS_table = new Hashtable<>();
-    static Hashtable<String, String> Env_PIS_table = new Hashtable<>();
-    static Hashtable<String, String> Env_Polling_table = new Hashtable<>();
-    static Hashtable<String, String> Group_flag_table = new Hashtable<>();
-    static Hashtable<String, String> Individual_DIT_table = new Hashtable<>();
-    static Hashtable<String, String> Individual_PERF_table = new Hashtable<>();
-    static Hashtable<String, String> Individual_Stage_table = new Hashtable<>();
-    static Hashtable<String, String> Individual_PROD_table = new Hashtable<>();
-    static Hashtable<String, String> Individual_flag_table = new Hashtable<>();
-    static Hashtable<String, String> Individual_Auth_table = new Hashtable<>();
-    static Hashtable<String, String> Individual_CA_table = new Hashtable<>();
-    static Hashtable<String, String> Individual_EIS_table = new Hashtable<>();
-    static Hashtable<String, String> Individual_IS_table = new Hashtable<>();
-    static Hashtable<String, String> Individual_PIS_table = new Hashtable<>();
-    static Hashtable<String, String> Individual_Polling_table = new Hashtable<>();
-    static List<String[]> host_okay_list = new ArrayList<String[]>();
-    static List<String[]> host_warning_list = new ArrayList<String[]>();
-    static List<String[]> host_critical_list = new ArrayList<String[]>();
-    static ArrayList<String> New_host_list = new ArrayList<>();
-    static Boolean clear_flag = false;
+    static ArrayList<String> DIT_host_list = new ArrayList<>();  //Tracks the list of hosts in DIT
+    static ArrayList<String> PERF_host_list = new ArrayList<>();  //Tracks the list of hosts in PERF
+    static ArrayList<String> Stage_host_list = new ArrayList<>();  //Tracks the list of hosts in Stage
+    static ArrayList<String> PROD_host_list = new ArrayList<>();  //Tracks the list of hosts in PROD
+    static ArrayList<String> Auth_host_list = new ArrayList<>();  //Tracks the list of hosts in the Auth team
+    static ArrayList<String> CA_host_list = new ArrayList<>();  //Tracks the list of hosts in the CA team
+    static ArrayList<String> EIS_host_list = new ArrayList<>();  //Tracks the list of hosts in the EIS team
+    static ArrayList<String> IS_host_list = new ArrayList<>();  //Tracks the list of hosts in the IS team
+    static ArrayList<String> PIS_host_list = new ArrayList<>();  //Tracks the list of hosts in the PIS team
+    static ArrayList<String> Polling_host_list = new ArrayList<>();   //Tracks the list of hosts in the Polling team
+    static ArrayList<String> Test_host_list = new ArrayList<>();  //Tracks the list of hosts if I have any test hosts
+    static ArrayList<String> Temp_host_list = new ArrayList<>(); //Used to check if a host name has been added to the Final_host_list yet
+    static Hashtable<String, String> Env_group_table = new Hashtable<>();  //Tracks the status of each environment
+    static Hashtable<String, String> Env_Auth_table = new Hashtable<>();  //Tracks the status of the Auth team in each environment
+    static Hashtable<String, String> Env_CA_table = new Hashtable<>();  //Tracks the status of the CA team in each environment
+    static Hashtable<String, String> Env_EIS_table = new Hashtable<>();  //Tracks the status of the EIS team in each environment
+    static Hashtable<String, String> Env_IS_table = new Hashtable<>();  //Tracks the status of the IS team in each environment
+    static Hashtable<String, String> Env_PIS_table = new Hashtable<>();  //Tracks the status of the PIS team in each environment
+    static Hashtable<String, String> Env_Polling_table = new Hashtable<>();  //Tracks the status of the Polling team in each environment
+    static Hashtable<String, String> Group_flag_table = new Hashtable<>();  //Tracks the status of each team for each environment
+    static Hashtable<String, String> Individual_DIT_table = new Hashtable<>();  //Tracks the status of the individual host in the DIT environment
+    static Hashtable<String, String> Individual_PERF_table = new Hashtable<>();  //Tracks the status of the individual host in the PERF environment
+    static Hashtable<String, String> Individual_Stage_table = new Hashtable<>();  //Tracks the status of the individual host in the Stage environment
+    static Hashtable<String, String> Individual_PROD_table = new Hashtable<>();  //Tracks the status of the individual host in the PROD environment
+    static Hashtable<String, String> Individual_flag_table = new Hashtable<>();  //Tracks the status of each individual host
+    static Hashtable<String, String> Individual_Auth_table = new Hashtable<>();  //Tracks the status of each host in the Auth team
+    static Hashtable<String, String> Individual_CA_table = new Hashtable<>();  //Tracks the status of each host in the CA team
+    static Hashtable<String, String> Individual_EIS_table = new Hashtable<>();  //Tracks the status of each host in the EIS team
+    static Hashtable<String, String> Individual_IS_table = new Hashtable<>();  //Tracks the status of each host in the IS team
+    static Hashtable<String, String> Individual_PIS_table = new Hashtable<>();  //Tracks the status of each host in the PIS team
+    static Hashtable<String, String> Individual_Polling_table = new Hashtable<>();  //Tracks the status of each host in the Polling team
+    static List<String[]> host_okay_list = new ArrayList<String[]>(); //List of hosts with the okay status
+    static List<String[]> host_warning_list = new ArrayList<String[]>();  //List of hosts with the warning status
+    static List<String[]> host_critical_list = new ArrayList<String[]>();  //List of hosts with the critical status
+    static ArrayList<String> Final_host_list = new ArrayList<>();  //The final list of all acceptable host names
+    static Boolean clear_flag = false;  //****Very important, is triggered once the data from the PROD Url is returned. This means that I have all the data from both Url feeds.
+                                                // Used to determine if the host lists should be cleared and if Json Object should be returned.
 
     //static ArrayList<JSONObject> Test_list = new ArrayList<>();
 
@@ -94,10 +93,10 @@ public class Host_Gather {
         for(int i = 0; i< host_list.size(); i++){
             temp = host_list.get(i).split("\\s*:\\s*");
             //System.out.println(temp[0] + temp[1]);
-            if(!Final_host_list.contains(temp[2])){
-                New_host_list.add(temp[2]);
-                Final_host_list.add(temp[1]);
+            if(!Temp_host_list.contains(temp[2])){
                 Final_host_list.add(temp[2]);
+                Temp_host_list.add(temp[1]);
+                Temp_host_list.add(temp[2]);
             }
             if (temp[0].equals("DIT")&& !DIT_host_list.contains(temp[2])){
                 DIT_host_list.add(temp[2]);
@@ -186,7 +185,7 @@ public class Host_Gather {
                 Element element = (Element) node;
                 String id = element.getAttribute("id");
                 String host_name = element.getElementsByTagName("name").item(0).getTextContent();
-                if(New_host_list.contains(host_name)){
+                if(Final_host_list.contains(host_name)){
                     String a = element.getElementsByTagName("current_state").item(0).getTextContent();
                     if (a.equals("0")) {
                         String[] object = new String[5];
@@ -1219,7 +1218,7 @@ public class Host_Gather {
             host_okay_list.clear();
             host_warning_list.clear();
             host_critical_list.clear();
-            Final_host_list.clear();
+            Temp_host_list.clear();
 
 
             clear_flag = false;
