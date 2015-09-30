@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -21,8 +22,12 @@ import org.apache.commons.collections4.queue.CircularFifoQueue;
  */
 public class Servlet extends javax.servlet.http.HttpServlet {
 
-    private final File file = new File("C:\\Users\\blackmju\\Documents\\HostName.txt"); //Location of file for host names
-    private final File PROD_file = new File("C:\\Users\\blackmju\\Documents\\PROD_HostName.txt"); //Location of file for host names in PROD environment
+    //private final File file = new File("./HostName.txt"); //Location of file for host names
+    private URL url = getClass().getResource("HostName.txt");
+    File file= new File(url.getPath());
+    private URL PROD_url = getClass().getResource("PROD_HostName.txt");
+    File PROD_file= new File(PROD_url.getPath());
+    //private final File PROD_file = new File("./PROD_HostName.txt"); //Location of file for host names in PROD environment
 
     static ArrayList<String> host_list = new ArrayList<>();
     static ArrayList<String> PROD_host_list = new ArrayList<>();

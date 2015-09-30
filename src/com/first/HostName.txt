@@ -1,0 +1,107 @@
+c03scsssvc85.dswh.ds.adp.com
+jjj: gh56j
+1111
+DIT: Auth: api-int.dit.adpedge.com
+PERF: Auth: api-int.perf.adpedge.com
+Stage: Auth: api-int.stage.adpedge.com
+DIT: Auth: c03icsssvc11.dslab.ad.adp.com
+DIT: Auth: c03icsssvc25.dslab.ad.adp.com
+DIT: Auth: c03icsssvc18.dslab.ad.adp.com
+DIT: Auth: c03icsssvc20.dslab.ad.adp.com
+PERF: Auth: c03rcsssvc21.dslab.ad.adp.com
+PERF: Auth: c03rcsssvc54.dslab.ad.adp.com
+PERF: Auth: c03rcsssvc16.dslab.ad.adp.com
+PERF: Auth: c03rcsssvc84.dslab.ad.adp.com
+Stage: Auth: c03scsssvc15.dswh.ds.adp.com
+Stage: Auth: c03scsssvc49.dswh.ds.adp.com
+Stage: Auth: c03scsssvc58.dswh.ds.adp.com
+Stage: Auth: c03scsssvc85.dswh.ds.adp.com
+DIT: CA: www-dit.adpedge.com
+DIT: CA: c03icsssvc29.dslab.ad.adp.com
+DIT: CA: c03icsssvc32.dslab.ad.adp.com
+DIT: CA: www-dit.adpedge.com
+DIT: CA: c03icsssvc29.dslab.ad.adp.com
+DIT: CA: c03icsssvc32.dslab.ad.adp.com
+DIT: CA: www-dit.adpedge.com
+DIT: CA: www-dit.adpedge.com
+PERF: CA: www-perf.adpedge.com
+PERF: CA: c03rcsssvc36.dslab.ad.adp.com
+PERF: CA: c03rcsssvc57.dslab.ad.adp.com
+PERF: CA: www-perf.adpedge.com
+PERF: CA: c03rcsssvc36.dslab.ad.adp.com
+PERF: CA: c03rcsssvc57.dslab.ad.adp.com
+PERF: CA: www-perf.adpedge.com
+PERF: CA: www-perf.adpedge.com
+Stage: CA: www-stage.adpedge.com
+Stage: CA: c03scsssvc15.dswh.ds.adp.com
+Stage: CA: c03scsssvc49.dswh.ds.adp.com
+Stage: CA: www-stage.adpedge.com
+Stage: CA: c03scsssvc15.dswh.ds.adp.com
+Stage: CA: c03scsssvc49.dswh.ds.adp.com
+Stage: CA: www-stage.adpedge.com
+Stage: CA: www-stage.adpedge.com
+Stage: CA: www-stage.adpedge.com
+Stage: CA: www-stage.adpedge.com
+DIT: EIS: api-int.dit.adpedge.com
+DIT: EIS: c03icsssvc49.dslab.ad.adp.com
+DIT: EIS: c03icsssvc34.dslab.ad.adp.com
+DIT: EIS: c03icsssvc18.dslab.ad.adp.com
+DIT: EIS: c03icsssvc20.dslab.ad.adp.com
+DIT: EIS: api-dit.adpedge.com
+DIT: EIS: login-dit.adpedge.com
+PERF: EIS: api-int.perf.adpedge.com
+PERF: EIS: c03rcsssvc27.dslab.ad.adp.com
+PERF: EIS: c03rcsssvc69.dslab.ad.adp.com
+PERF: EIS: c03rcsssvc16.dslab.ad.adp.com
+PERF: EIS: c03rcsssvc84.dslab.ad.adp.com
+PERF: EIS: api-perf.adpedge.com
+PERF: EIS: login-perf.adpedge.com
+Stage: EIS: api-int.stage.adpedge.com
+Stage: EIS: c03scsssvc15.dswh.ds.adp.com
+Stage: EIS: c03scsssvc49.dswh.ds.adp.com
+Stage: EIS: c03scsssvc58.dswh.ds.adp.com
+Stage: EIS: c03scsssvc85.dswh.ds.adp.com
+Stage: EIS: api-stage.adpedge.com
+Stage: EIS: login-stage.adpedge.com
+DIT: IS: api-int.dit.adpedge.com
+DIT: IS: c03icsssvc29.dslab.ad.adp.com
+DIT: IS: c03icsssvc32.dslab.ad.adp.com
+PERF: IS: api-int.perf.adpedge.com
+PERF: IS: c03rcsssvc36.dslab.ad.adp.com
+PERF: IS: c03rcsssvc57.dslab.ad.adp.com
+Stage: IS: api-int.stage.adpedge.com
+Stage: IS: c03scsssvc15.dswh.ds.adp.com
+Stage: IS: c03scsssvc49.dswh.ds.adp.com
+DIT: PIS: api-int.dit.adpedge.com
+DIT: PIS: c03icsssvc66.dslab.ad.adp.com
+DIT: PIS: c03icsssvc91.dslab.ad.adp.com
+DIT: PIS: c03icsssvc18.dslab.ad.adp.com
+DIT: PIS: c03icsssvc20.dslab.ad.adp.com
+PERF: PIS: api-int.perf.adpedge.com
+PERF: PIS: c03rcsssvc91.dslab.ad.adp.com
+PERF: PIS: c03rcsssvc75.dslab.ad.adp.com
+PERF: PIS: c03rcsssvc16.dslab.ad.adp.com
+PERF: PIS: c03rcsssvc84.dslab.ad.adp.com
+Stage: PIS: api-int.stage.adpedge.com
+Stage: PIS: c03scsssvc15.dswh.ds.adp.com
+Stage: PIS: c03scsssvc49.dswh.ds.adp.com
+Stage: PIS: c03scsssvc58.dswh.ds.adp.com
+Stage: PIS: c03scsssvc85.dswh.ds.adp.com
+DIT: Polling: api-int.dit.adpedge.com
+DIT: Polling: c03icsssvc66.dslab.ad.adp.com
+DIT: Polling: c03icsssvc91.dslab.ad.adp.com
+PERF: Polling: api-int.perf.adpedge.com
+PERF: Polling: c03rcsssvc24.dslab.ad.adp.com
+Stage: Polling: api-int.stage.adpedge.com
+Stage: Polling: c03scsssvc24.dswh.ds.adp.com
+
+
+
+
+
+
+
+
+
+
+

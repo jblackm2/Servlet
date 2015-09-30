@@ -67,20 +67,20 @@ public class Host_Gather {
         System.out.println(Thread.currentThread().getName() + " Host task");
 
         String [] temp = null;
-        JSONObject obj7 = new JSONObject();
-        JSONObject obj8 = new JSONObject();
+        JSONObject masterListObj = new JSONObject();  //Used to compile a JSON Object of all the various lists
+        JSONObject finalObj = new JSONObject();  //The final JSON object that is sent to the web app
 
 
 
         ArrayList<JSONObject> Env_list = new ArrayList<>();
-        ArrayList<JSONObject> DIT_list = new ArrayList<>();
-        ArrayList<JSONObject> DIT_detail_list = new ArrayList<>();
-        ArrayList<JSONObject> PERF_list = new ArrayList<>();
-        ArrayList<JSONObject> PERF_detail_list = new ArrayList<>();
-        ArrayList<JSONObject> Stage_list = new ArrayList<>();
-        ArrayList<JSONObject> Stage_detail_list = new ArrayList<>();
-        ArrayList<JSONObject> PROD_list = new ArrayList<>();
-        ArrayList<JSONObject> PROD_detail_list = new ArrayList<>();
+        ArrayList<JSONObject> DIT_list = new ArrayList<>();  //List of hosts and status in the DIT environment
+        ArrayList<JSONObject> DIT_detail_list = new ArrayList<>();  //List of teams and status in the DIT environment
+        ArrayList<JSONObject> PERF_list = new ArrayList<>();  //List of hosts and status in the PERF environment
+        ArrayList<JSONObject> PERF_detail_list = new ArrayList<>();  //List of teams and status in the PERF environment
+        ArrayList<JSONObject> Stage_list = new ArrayList<>(); //List of hosts and status in the Stage environment
+        ArrayList<JSONObject> Stage_detail_list = new ArrayList<>(); //List of teams and status in the Stage environment
+        ArrayList<JSONObject> PROD_list = new ArrayList<>();  //List of hosts and status in the PROD environment
+        ArrayList<JSONObject> PROD_detail_list = new ArrayList<>();  //List of teams and status in the PROD environment
         ArrayList<JSONObject> Group_list = new ArrayList<>();
         ArrayList<JSONObject> Auth_list = new ArrayList<>();
         ArrayList<JSONObject> CA_list = new ArrayList<>();
@@ -1176,27 +1176,27 @@ public class Host_Gather {
 
             System.out.println("TTTTT: " + Auth_list);
 
-            obj7.put("Env_list", Env_list);
-            obj7.put("DIT_list", DIT_list);
-            obj7.put("PERF_list", PERF_list);
-            obj7.put("Stage_list", Stage_list);
-            obj7.put("PROD_list", PROD_list);
-            obj7.put("Authorization", Auth_list);
-            obj7.put("Common Admin", CA_list);
-            obj7.put("Enterprise Identity Service", EIS_list);
-            obj7.put("Identity Service", IS_list);
-            obj7.put("Product Identity Service", PIS_list);
-            obj7.put("Polling", Polling_list);
-            obj7.put("DIT", DIT_detail_list);
-            obj7.put("PERF", PERF_detail_list);
-            obj7.put("Stage", Stage_detail_list);
-            obj7.put("PROD", PROD_detail_list);
-            //obj7.put("Details", Test_list);
-            Master_list.add(obj7);
-            obj8.put("Individual_lists", Master_list);
+            masterListObj.put("Env_list", Env_list);
+            masterListObj.put("DIT_list", DIT_list);
+            masterListObj.put("PERF_list", PERF_list);
+            masterListObj.put("Stage_list", Stage_list);
+            masterListObj.put("PROD_list", PROD_list);
+            masterListObj.put("Authorization", Auth_list);
+            masterListObj.put("Common Admin", CA_list);
+            masterListObj.put("Enterprise Identity Service", EIS_list);
+            masterListObj.put("Identity Service", IS_list);
+            masterListObj.put("Product Identity Service", PIS_list);
+            masterListObj.put("Polling", Polling_list);
+            masterListObj.put("DIT", DIT_detail_list);
+            masterListObj.put("PERF", PERF_detail_list);
+            masterListObj.put("Stage", Stage_detail_list);
+            masterListObj.put("PROD", PROD_detail_list);
+            //masterListObj.put("Details", Test_list);
+            Master_list.add(masterListObj);
+            finalObj.put("Individual_lists", Master_list);
 
 
-            System.out.println("Returned: " + obj8);
+            System.out.println("Returned: " + finalObj);
             print_lists();
             /*System.out.println("EIS List: " + EIS_list);
             System.out.println("EIS List: " + EIS_list.size());
@@ -1232,7 +1232,7 @@ public class Host_Gather {
         System.out.println("Flag: " + clear_flag);
 
 
-        return obj8;
+        return finalObj;
     }
 
     private static void print_lists() {
