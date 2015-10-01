@@ -152,6 +152,9 @@ public class Service_Gather {
                             object[6] = (element.getElementsByTagName("current_check_attempt").item(0).getTextContent());
                             object[7] = (element.getElementsByTagName("max_check_attempts").item(0).getTextContent());
                             object[8] = (element.getElementsByTagName("check_command").item(0).getTextContent());
+                            if(object[0].startsWith("HTTP - ")){
+                                object[0] = object[0].replace("HTTP - ", "");
+                            }
                             service_okay_list.add(object);
                             Individual_flag_table.put(object[3], "green");
                             JSONObject t = new JSONObject();
@@ -179,6 +182,9 @@ public class Service_Gather {
                             object[6] = (element.getElementsByTagName("current_check_attempt").item(0).getTextContent());
                             object[7] = (element.getElementsByTagName("max_check_attempts").item(0).getTextContent());
                             object[8] = (element.getElementsByTagName("check_command").item(0).getTextContent());
+                            if(object[0].startsWith("HTTP - ")){
+                                object[0] = object[0].replace("HTTP - ", "");
+                            }
                             service_warning_list.add(object);
                             Individual_flag_table.put(object[3], "yellow");
                             JSONObject t = new JSONObject();
@@ -207,6 +213,9 @@ public class Service_Gather {
                             object[6] = (element.getElementsByTagName("current_check_attempt").item(0).getTextContent());
                             object[7] = (element.getElementsByTagName("max_check_attempts").item(0).getTextContent());
                             object[8] = (element.getElementsByTagName("check_command").item(0).getTextContent());
+                            if(object[0].startsWith("HTTP - ")){
+                                object[0] = object[0].replace("HTTP - ", "");
+                            }
                             service_critical_list.add(object);
                             Individual_flag_table.put(object[3], "red");
                             JSONObject t = new JSONObject();
