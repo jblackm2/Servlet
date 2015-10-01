@@ -1,0 +1,25 @@
+.tablePadding th{
+    padding:15px 15px;
+}
+
+.tableP td{
+    padding:0 30px;
+}
+
+.t td{
+    padding: 0px 75px;
+}
+
+.title {
+    background-color: green;
+    font-family: 'Corben', Georgia, Times, serif;
+}
+.headers{
+    font-family: 'Corben', Georgia, Times, serif;
+}
+
+.new-row {
+    clear: left;
+}
+.row { display: inline-block;
+}

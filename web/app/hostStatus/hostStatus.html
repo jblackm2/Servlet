@@ -1,0 +1,124 @@
+<link rel="stylesheet" href="hostStatus/hostStatus.css">
+
+<h1 class = "title"> Host Status: {{ time | date : 'medium'}}</h1>  <!-- Displays the status of overall environments-->
+
+<table class="table">
+    <thead>
+        <tr class = "tablePadding">
+            <th ng-repeat="host in getList()| orderBy: 'name'">
+                {{host.name}}
+            </th>
+        </tr>
+    </thead>
+
+    <tbody class="t">
+        <td ng-repeat="host in getList() | orderBy: 'name'" >
+            <img ng-src="resources/{{host.color}}.jpg" title="{{host.name}}" ng-click="show(host.name)">
+        </td>
+    </tbody>
+</table>
+
+<!-- Displays the status of each team within a specific environment-->
+<!--div ng-show="myValue" class="hideByDefault">
+    <h1 class="headers">Environment Details: {{env}}</h1>
+    <div class = "row" ng-repeat="host in getDetail1(env) | orderBy: 'name'"
+         ng-class="{'new-row': startNewRow($index, columnBreak) }">
+        <table class="table">
+            <thead>
+                <tr ng-if="$index < 6">
+                    <th>Name</th>
+                    <th>Color</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class = "tableP" >
+                    <td >
+                        {{$index+1}}.
+                        {{host.name}}:
+                    </td>
+                    <td>
+                        <img ng-src="resources/{{host.color}}_small.jpg" title="{{host.name}}" ng-click="show2(host.name)">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div-->
+
+<div ng-show="myValue" class="hideByDefault">
+    <h1 class="headers">Environment Details: {{env}}</h1>
+    <table class="table" >
+
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody ng-repeat="host in getDetail1(env) | orderBy: 'name'">
+                <tr class = "tableP" >
+                    <td >
+                        {{$index+1}}.
+                        {{host.name}}:
+                    </td>
+                    <td>
+                        <img ng-src="resources/{{host.color}}_small.jpg" title="{{host.name}}" ng-click="show2(host.name)">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </table>
+</div>
+
+<!-- Displays the status of individual servers within a specific team and environment-->
+<!--div ng-show="myValue2" class="hideByDefault">
+    <h2 class = "headers">Team Details: {{group}}</h2>
+    <div class = "row" ng-repeat="host in getDetail2(group, env) | orderBy: 'name'"
+         ng-class="{'new-row': startNewRow($index, columnBreak) }" ng-if="host.group == group" >
+        <table class="table">
+            <thead>
+                <tr ng-init="count()">
+                    <th>Service</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class = "tableP" >
+                    <td >
+                        {{host.name}}:
+                    </td>
+                    <td>
+                        <img ng-src="resources/{{host.color}}_small.jpg" title="{{host.name}}">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div-->
+
+<div ng-show="myValue2" class="hideByDefault">
+    <h2 class = "headers">Team Details: {{group}}</h2>
+        <table class="table" >
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody ng-repeat="host in getDetail2(group, env) | orderBy: 'name'" ng-if="host.group == group" >
+                <tr class = "tableP" >
+                    <td >
+                        {{host.name}}:
+                    </td>
+                    <td>
+                        <img ng-src="resources/{{host.color}}_small.jpg" title="{{host.name}}">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+

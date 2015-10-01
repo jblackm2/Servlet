@@ -1,0 +1,76 @@
+
+.tableP td{
+    padding:0 25px;
+
+}
+
+.tableH th{
+    word-wrap: break-word;
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding:0 15px;
+
+}
+
+.tableT td{
+    word-wrap: break-word;
+    border: 1px solid grey;
+    border-collapse: collapse;
+    text-align: left;
+
+}
+
+.t td{
+    padding: 0px 75px;
+}
+
+.title{
+    #background-color: green;
+    font-family: 'Corben', Georgia, Times, serif;
+    color: #5a5a5a;
+    border-bottom: 0.1em ridge #5a5a5a;
+    background-color: #c4c4c4;
+}
+
+.textRed{
+    color: red;
+
+}
+.textYellow{
+    color: yellow;
+
+}
+.textGreen{
+    color: green;
+
+}
+
+.textOk:before{
+    content: "Status: Ok";
+}
+
+.textWarning:before{
+    content: "Status: Warning";
+}
+
+.textCritical:before{
+    content: "Status: Critical";
+}
+
+.background{
+    background-color: #c4c4c4;
+    font-family: 'Corben', Georgia, Times, serif;
+    border-bottom: 0.1em ridge #5a5a5a;
+    color: #5a5a5a;
+}
+
+.new-row{
+    clear: left;
+}
+.row{
+    display: inline-block; }
+
+.link{
+    text-decoration: underline;
+    cursor: pointer;
+}

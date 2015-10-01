@@ -1,6 +1,3 @@
-c03scsssvc85.dswh.ds.adp.com
-jjj: gh56j
-1111
 DIT: Auth: api-int.dit.adpedge.com
 PERF: Auth: api-int.perf.adpedge.com
 Stage: Auth: api-int.stage.adpedge.com
