@@ -74,3 +74,6 @@
     text-decoration: underline;
     cursor: pointer;
 }
+.headers{
+    font-family: 'Corben', Georgia, Times, serif;
+}

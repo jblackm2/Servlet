@@ -159,7 +159,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
 
             } else {
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-                System.out.print("ERROR");
+                System.out.println("ERROR");
             }
         }
         catch (Exception e){

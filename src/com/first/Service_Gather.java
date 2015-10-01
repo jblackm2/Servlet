@@ -1279,7 +1279,7 @@ public class Service_Gather {
             int start = object[8].indexOf(";/");
             //if(object[8].substring(start - 1, start).equals(";")){
             int from = start + 1;
-            int to = object[8].indexOf(';', from+1);
+            int to = object[8].indexOf('&', from+1);
             object[8] = object[8].substring(from, to);
             //t.put("url", object[3] + object[8]);
             //t.put("check_command", object[8]);

@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="serviceStatus/serviceStatus.css">
 
-<h1 class ="title"> Service Status: {{time | date : 'medium'}}</h1> <!-- Displays the status of overall environments-->
+<h1 class ="title"> Service Status: &nbsp;&nbsp; {{time | date : 'medium'}}</h1> <!-- Displays the status of overall environments-->
 <table class="table">
   <thead>
     <tr>
@@ -45,7 +45,7 @@
   </div>
 </div-->
 <div ng-show="myValue" class="hideByDefault" >
-  <h1><span class="background" > Environment Details: {{env}}</span></h1>
+  <h1><span class="headers" > Environment Details: &nbsp;&nbsp;{{env}}</span></h1>
 
     <table class="table">
       <thead>
@@ -96,7 +96,7 @@
   </div>
 </div-->
 <div ng-show="myValue2" class="hideByDefault">
-  <h2><span class="background">Team Details: {{group}} </span></h2>
+  <h2><span class="headers">Team Details:&nbsp;&nbsp; {{group}} </span></h2>
 
     <table class="table" >
       <thead>
@@ -121,7 +121,7 @@
 
 <!-- Displays the details of an individual server-->
 <div ng-show="myValue3" class="hideByDefault" >
-  <h3><span class ="background">Details: {{id}}</span></h3>
+  <h3><span class ="headers">Details: &nbsp;&nbsp;{{id}}</span></h3>
   <table class="table" style ="table-layout: auto; width: 100%">
     <thead>
       <tr class = "tableH">
