@@ -81,8 +81,8 @@ public class Servlet extends javax.servlet.http.HttpServlet {
             }
         }
         PROD_host_list.removeAll(remove_list);
-        System.out.println("Host size: " + host_list.size());
-        System.out.println("PROD Host size: " + PROD_host_list.size());
+        //System.out.println("Host size: " + host_list.size());
+        //System.out.println("PROD Host size: " + PROD_host_list.size());
 
         int initDelay = 0;
         int period = 300000;
@@ -101,7 +101,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
 
         Host_Gather.gather(Host_url, host_list);
         host_message = Host_Gather.gather(PROD_Host_url, PROD_host_list);
-        System.out.println("Host Message: " + host_message);
+
 
         backup_service_message = service_message;
         Service_Gather.Test_list.clear();
@@ -109,10 +109,6 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         Service_Gather.gather(Service_url, host_list);
         service_message = Service_Gather.gather(PROD_Service_url, PROD_host_list);
         queue.add(service_message);
-
-        System.out.println("Queue Contents1: " + queue);
-        System.out.println("Queue Size1: " + queue.size());
-        System.out.println("Service Message: " + service_message);
 
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -124,7 +120,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 buffer.append(line);
             }
             String data = buffer.toString();
-            System.out.println("DATA :" + data);
+            //System.out.println("DATA :" + data);
 
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
@@ -135,7 +131,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
 
             if (data.contains("host")) {
 
-                System.out.println("Host: " + host_message);
+                //System.out.println("Host: " + host_message);
 
                 PrintWriter out = response.getWriter();
                 out.print(host_message);
@@ -148,9 +144,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 }
                 message = queue.element();
 
-                System.out.println("Service: " + message);
-                System.out.println("Queue Contents2: " + queue);
-                System.out.println("Queue Size2: " + queue.size());
+                //ystem.out.println("Service: " + message);
 
                 PrintWriter out = response.getWriter();
                 out.print(message);
@@ -178,6 +172,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
 
     public void destroy()
     {
+
         System.out.println("DESTROYED");
     }
 

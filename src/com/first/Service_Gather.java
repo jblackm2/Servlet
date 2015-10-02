@@ -1290,6 +1290,12 @@ public class Service_Gather {
             int from = start + 1;
             int to = object[8].indexOf('&', from+1);
             object[8] = object[8].substring(from, to);
+            if(object[8].contains("AuthorizationService")){ //The original url in the xml feeds leads to nothing. This modifies it to display the actual health check
+                object[8] = "/AuthorizationService/health";
+            }
+            else if(object[8].contains("commonproductservice")){ //The original url in the xml feeds leads to nothing. This modifies it to display the actual health check
+                object[8] = "/commonproductservice/health";
+            }
             //t.put("url", object[3] + object[8]);
             //t.put("check_command", object[8]);
             //}
