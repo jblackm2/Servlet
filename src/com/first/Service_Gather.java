@@ -838,7 +838,7 @@ public class Service_Gather {
                     String key = e8.nextElement();
                     if(Auth_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Authorization");
+                        t.put("group", "Authorization Service");
                         t.put("name", key);
                         t.put("color", Individual_DIT_table.get(key));
                         DIT_list.add(t);
@@ -852,7 +852,7 @@ public class Service_Gather {
                     }
                     if(EIS_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Enterprise Info Service");
+                        t.put("group", "Enterprise Service");
                         t.put("name", key);
                         t.put("color", Individual_DIT_table.get(key));
                         DIT_list.add(t);
@@ -866,14 +866,14 @@ public class Service_Gather {
                     }
                     if(PIS_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Product Identity Service");
+                        t.put("group", "Product Service");
                         t.put("name", key);
                         t.put("color", Individual_DIT_table.get(key));
                         DIT_list.add(t);
                     }
                     if(Polling_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Polling");
+                        t.put("group", "Polling Service");
                         t.put("name", key);
                         t.put("color", Individual_DIT_table.get(key));
                         DIT_list.add(t);
@@ -886,7 +886,7 @@ public class Service_Gather {
                     String key = e9.nextElement();
                     if(Auth_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Authorization");
+                        t.put("group", "Authorization Service");
                         t.put("name", key);
                         t.put("color", Individual_PERF_table.get(key));
                         PERF_list.add(t);
@@ -900,7 +900,7 @@ public class Service_Gather {
                     }
                     if(EIS_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Enterprise Info Service");
+                        t.put("group", "Enterprise Service");
                         t.put("name", key);
                         t.put("color", Individual_PERF_table.get(key));
                         PERF_list.add(t);
@@ -914,14 +914,14 @@ public class Service_Gather {
                     }
                     if(PIS_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Product Identity Service");
+                        t.put("group", "Product Service");
                         t.put("name", key);
                         t.put("color", Individual_PERF_table.get(key));
                         PERF_list.add(t);
                     }
                     if(Polling_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Polling");
+                        t.put("group", "Polling Service");
                         t.put("name", key);
                         t.put("color", Individual_PERF_table.get(key));
                         PERF_list.add(t);
@@ -935,7 +935,7 @@ public class Service_Gather {
                     String key = e10.nextElement();
                     if(Auth_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Authorization");
+                        t.put("group", "Authorization Service");
                         t.put("name", key);
                         t.put("color", Individual_Stage_table.get(key));
                         Stage_list.add(t);
@@ -949,7 +949,7 @@ public class Service_Gather {
                     }
                     if(EIS_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Enterprise Info Service");
+                        t.put("group", "Enterprise Service");
                         t.put("name", key);
                         t.put("color", Individual_Stage_table.get(key));
                         Stage_list.add(t);
@@ -963,14 +963,14 @@ public class Service_Gather {
                     }
                     if(PIS_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Product Identity Service");
+                        t.put("group", "Product Service");
                         t.put("name", key);
                         t.put("color", Individual_Stage_table.get(key));
                         Stage_list.add(t);
                     }
                     if(Polling_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Polling");
+                        t.put("group", "Polling Service");
                         t.put("name", key);
                         t.put("color", Individual_Stage_table.get(key));
                         Stage_list.add(t);
@@ -984,7 +984,7 @@ public class Service_Gather {
                     String key = e11.nextElement();
                     if(Auth_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Authorization");
+                        t.put("group", "Authorization Service");
                         t.put("name", key);
                         t.put("color", Individual_PROD_table.get(key));
                         PROD_list.add(t);
@@ -998,7 +998,7 @@ public class Service_Gather {
                     }
                     if(EIS_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Enterprise Info Service");
+                        t.put("group", "Enterprise Service");
                         t.put("name", key);
                         t.put("color", Individual_PROD_table.get(key));
                         PROD_list.add(t);
@@ -1012,14 +1012,14 @@ public class Service_Gather {
                     }
                     if(PIS_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Product Identity Service");
+                        t.put("group", "Product Service");
                         t.put("name", key);
                         t.put("color", Individual_PROD_table.get(key));
                         PROD_list.add(t);
                     }
                     if(Polling_host_list.contains(key)){
                         JSONObject t = new JSONObject();
-                        t.put("group", "Polling");
+                        t.put("group", "Polling Service");
                         t.put("name", key);
                         t.put("color", Individual_PROD_table.get(key));
                         PROD_list.add(t);
@@ -1042,22 +1042,22 @@ public class Service_Gather {
                     JSONObject t = new JSONObject();
                     String key = e13.nextElement();
                     if(key.equals("DIT")){
-                        t.put("name", "Authorization");
+                        t.put("name", "Authorization Service");
                         t.put("color", Env_Auth_table.get(key));
                         DIT_detail_list.add(t);
                     }
                     else if(key.equals("PERF")){
-                        t.put("name", "Authorization");
+                        t.put("name", "Authorization Service");
                         t.put("color", Env_Auth_table.get(key));
                         PERF_detail_list.add(t);
                     }
                     else if(key.equals("Stage")){
-                        t.put("name", "Authorization");
+                        t.put("name", "Authorization Service");
                         t.put("color", Env_Auth_table.get(key));
                         Stage_detail_list.add(t);
                     }
                     else if(key.equals("PROD")){
-                        t.put("name", "Authorization");
+                        t.put("name", "Authorization Service");
                         t.put("color", Env_Auth_table.get(key));
                         PROD_detail_list.add(t);
                     }
@@ -1094,22 +1094,22 @@ public class Service_Gather {
                     JSONObject t = new JSONObject();
                     String key = e15.nextElement();
                     if(key.equals("DIT")){
-                        t.put("name", "Enterprise Info Service");
+                        t.put("name", "Enterprise Service");
                         t.put("color", Env_EIS_table.get(key));
                         DIT_detail_list.add(t);
                     }
                     else if(key.equals("PERF")){
-                        t.put("name", "Enterprise Info Service");
+                        t.put("name", "Enterprise Service");
                         t.put("color", Env_EIS_table.get(key));
                         PERF_detail_list.add(t);
                     }
                     else if(key.equals("Stage")){
-                        t.put("name", "Enterprise Info Service");
+                        t.put("name", "Enterprise Service");
                         t.put("color", Env_EIS_table.get(key));
                         Stage_detail_list.add(t);
                     }
                     else if(key.equals("PROD")){
-                        t.put("name", "Enterprise Info Service");
+                        t.put("name", "Enterprise Service");
                         t.put("color", Env_EIS_table.get(key));
                         PROD_detail_list.add(t);
                     }
@@ -1146,22 +1146,22 @@ public class Service_Gather {
                     JSONObject t = new JSONObject();
                     String key = e17.nextElement();
                     if(key.equals("DIT")){
-                        t.put("name", "Product Identity Service");
+                        t.put("name", "Product Service");
                         t.put("color", Env_PIS_table.get(key));
                         DIT_detail_list.add(t);
                     }
                     else if(key.equals("PERF")){
-                        t.put("name", "Product Identity Service");
+                        t.put("name", "Product Service");
                         t.put("color", Env_PIS_table.get(key));
                         PERF_detail_list.add(t);
                     }
                     else if(key.equals("Stage")){
-                        t.put("name", "Product Identity Service");
+                        t.put("name", "Product Service");
                         t.put("color", Env_PIS_table.get(key));
                         Stage_detail_list.add(t);
                     }
                     else if(key.equals("PROD")){
-                        t.put("name", "Product Identity Service");
+                        t.put("name", "Product Service");
                         t.put("color", Env_PIS_table.get(key));
                         PROD_detail_list.add(t);
                     }
@@ -1172,22 +1172,22 @@ public class Service_Gather {
                     JSONObject t = new JSONObject();
                     String key = e18.nextElement();
                     if(key.equals("DIT")){
-                        t.put("name", "Polling");
+                        t.put("name", "Polling Service");
                         t.put("color", Env_Polling_table.get(key));
                         DIT_detail_list.add(t);
                     }
                     else if(key.equals("PERF")){
-                        t.put("name", "Polling");
+                        t.put("name", "Polling Service");
                         t.put("color", Env_Polling_table.get(key));
                         PERF_detail_list.add(t);
                     }
                     else if(key.equals("Stage")){
-                        t.put("name", "Polling");
+                        t.put("name", "Polling Service");
                         t.put("color", Env_Polling_table.get(key));
                         Stage_detail_list.add(t);
                     }
                     else if(key.equals("PROD")){
-                        t.put("name", "Polling");
+                        t.put("name", "Polling Service");
                         t.put("color", Env_Polling_table.get(key));
                         PROD_detail_list.add(t);
                     }
@@ -1201,12 +1201,12 @@ public class Service_Gather {
                 obj7.put("Stage_list", Stage_list);
                 obj7.put("PROD_list", PROD_list);
                 obj7.put("Group_list", Group_list);
-                obj7.put("Authorization", Auth_list);
+                obj7.put("Authorization Service", Auth_list);
                 obj7.put("Common Admin", CA_list);
-                obj7.put("Enterprise Info Service", EIS_list);
+                obj7.put("Enterprise Service", EIS_list);
                 obj7.put("Identity Service", IS_list);
-                obj7.put("Product Identity Service", PIS_list);
-                obj7.put("Polling", Polling_list);
+                obj7.put("Product Service", PIS_list);
+                obj7.put("Polling Service", Polling_list);
                 obj7.put("Details", T_list);
                 obj7.put("DIT", DIT_detail_list);
                 obj7.put("PERF", PERF_detail_list);

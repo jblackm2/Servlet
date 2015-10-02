@@ -25,11 +25,8 @@
 }
 
 .title{
-    #background-color: green;
     font-family: 'Corben', Georgia, Times, serif;
-    color: #5a5a5a;
     border-bottom: 0.1em ridge #5a5a5a;
-    background-color: #c4c4c4;
 }
 
 .textRed{

@@ -9,7 +9,7 @@ angular.module('myApp', [
   'myApp.version'
 ]).
 config(['$routeProvider',"$httpProvider", function($routeProvider, $httpProvider) {
-  $routeProvider.otherwise({redirectTo: '/hostStatus'});
+  $routeProvider.otherwise({redirectTo: '/serviceStatus'});
       $httpProvider.defaults.useXDomain = true;
       $httpProvider.defaults.withCredentials = true;
       delete $httpProvider.defaults.headers.common["X-Requested-With"];
